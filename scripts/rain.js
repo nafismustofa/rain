@@ -6,7 +6,7 @@ class Rain {
         this.vel = createVector(0, map(this.z, 0, 20, 7, 12));
         this.color = Math.floor(map(this.z, 0, 20, 10, 255));
         this.thick = map(this.z, 0, 20, 0.5, 1);
-        this.gravity = map(this.z, 0, 20, 0.1, 0.2);
+        this.gravity = map(this.z, 0, 20, 0.1, 0.5);
         this.rains = rains;
     }
 

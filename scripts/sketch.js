@@ -1,46 +1,17 @@
-const [width, height] = [300, 400];
-let canvas;
 let rainAmount = 0;
-let music;
-
-function preload() {
-    music = loadSound("./assets/audio/fall.mp3");
-}
 
 function setup() {
-    canvas = createCanvas(width, height);
-    canvas.parent("canvas");
-    canvas.style("border-radius", "15px");
-    canvas.style("border-width", "0px");
-    canvas.style("margin", "0");
-    canvas.style("padding", "0");
-
-    document.addEventListener("visibilitychange", () => {
-        if (document.visibilityState != "visible") {
-          music.pause();
-        }
-    });
+    createCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
     background(10);
-
-    if (mouseIn()) {
-        rainAmount = Math.floor(map(mouseY, 0, height, 1, 8));
-
-        if (!music.isPlaying()) {
-            music.play();
-            music.loop();
-        }
-    } else {
-        rainAmount = 0;
-
-        if (music.isPlaying()) {
-            music.stop();
-        }
-    }
-    music.setVolume(rainAmount/15);
+    mouseIn() ? rainAmount = Math.floor(map(mouseY, 0, height, 1, 10)) : rainAmount = 1;
     rain();
+}
+
+function windowResized() {
+    createCanvas(windowWidth, windowHeight);
 }
 
 let rains = [];
