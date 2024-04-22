@@ -1,0 +1,100 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    height: 100%;
+    overflow: hidden;
+
+    background-color: black;
+}
+
+#canvas {
+    height: 400px;
+    border-style: solid;
+    border-radius: 15px;
+    border-width: 2px;
+    border-color: whitesmoke;
+}
+
+#info {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+
+    width: 300px;
+    height: 350px;
+
+    pointer-events: none;
+}
+
+#title {
+    font-size: 50px;
+    color: whitesmoke;
+    padding: 0;
+    margin: 0;
+    text-shadow: 0px 0px 10px black;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#artist {
+    color: whitesmoke;
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+    text-shadow: 0px 0px 10px black;
+    font-family: 'Courier New', Courier, monospace;
+    opacity: 0.8;
+}
+
+#links {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+
+    width: 300px;
+    margin-top: 325px;
+    pointer-events: none;
+}
+
+#spotify {
+    height: 40px;
+    width: 40px;
+    margin-right: 20px;
+    transition: all 0.2s;
+    opacity: 0.8;
+}
+
+#youtube {
+    height: 60px;
+    width: 60px;
+    margin-right: 20px;
+    margin-left: 20px;
+    transition: all 0.2s;
+    opacity: 0.8;
+}
+
+#applemusic {
+    height: 40px;
+    width: 40px;
+    filter: invert();
+    margin-left: 20px;
+    transition: all 0.2s;
+    opacity: 0.8;
+}
+
+#youtube:hover, #spotify:hover, #applemusic:hover {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+#youtube:active, #spotify:active, #applemusic:active {
+    opacity: 0.5;
+}
+
+.clickable {
+    pointer-events: auto;
+}
