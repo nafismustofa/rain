@@ -12,7 +12,7 @@ class Rain {
 
     display() {
         strokeWeight(this.thick);
-        stroke(255, this.color);
+        stroke(150, this.color);
         line(this.pos.x, this.pos.y, this.pos.x, this.pos.y + this.len);
     }
 
@@ -26,7 +26,7 @@ class Rain {
         this.pos.add(this.vel);
         this.vel.y += this.gravity;
 
-        if (this.pos.y > Math.floor(map(this.z, 0, 20, height-140, height-120))) {
+        if (this.pos.y > Math.floor(map(this.z, 0, 20, height-150, height-130))) {
             this.displayDrop();
             const index = this.rains.indexOf(this);
             if (index !== -1) {

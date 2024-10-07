@@ -1,4 +1,6 @@
 let rainAmount = 0;
+let rains = [];
+let d = true;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
@@ -6,15 +8,14 @@ function setup() {
 
 function draw() {
     background(10);
-    mouseIn() ? rainAmount = Math.floor(map(mouseY, 0, height, 1, 10)) : rainAmount = 1;
+    rainAmount = Math.floor(map(mouseY, 0, height, 1, 10));
     rain();
+    thunder();
 }
 
 function windowResized() {
     createCanvas(windowWidth, windowHeight);
 }
-
-let rains = [];
 
 function rain() {
     for (let i = 0; i < rainAmount; i++) {
@@ -27,6 +28,10 @@ function rain() {
     });
 }
 
-function mouseIn() {
-    return ((mouseX > 0 && mouseX < width) && (mouseY > 0 && mouseY < height));
+function thunder() {
+    if (mouseY > 500 && d == true) {
+        fill(255, 255, 255, 200);
+        rect(0, 0, width, height);
+        setTimeout(() => {d = false}, 100)
+    }
 }
